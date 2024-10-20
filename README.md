@@ -1,4 +1,4 @@
-# Jenkins with KMP
+# Jenkins with Kotlin Compose Multiplatform (KMP/CMP)
 # Build Android Project with Jenkins
 Jenkins CI/CD with Kotlin Compose Multiplatform (KMP)
 
