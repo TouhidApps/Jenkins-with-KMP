@@ -1,8 +1,6 @@
 # Jenkins with KMP
 Jenkins CI/CD with Kotlin Compose Multiplatform (KMP)
 
-### This will help you to build and upload to firebase app distribution.
-
 ## How to use:
 Keep:
 Jenkinsfile and
