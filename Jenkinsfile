@@ -25,6 +25,30 @@ pipeline {
     }
     
     stages {
+        
+        stage('Check property file') { // check local.properties file is available or not if not create it
+            steps {
+                script {
+                    
+                    // Define the file path and content
+                    def propFilePath = "${env.WORKSPACE}/${MY_PROPERTIES_FILE}"
+                    def propFileContent = """sdk.dir=/Users/touhid/Library/Android/sdk
+VERSION_CODE=1
+VERSION_NAME=1.0.0
+RELEASE_NOTES=What's new:	- Added new features	- Fixed bug	- Improved performance	- new notificat"""
+
+                    // Check if the file exists
+                    if (!fileExists(propFilePath)) {
+                        // Create the file and write content
+                        writeFile file: propFilePath, text: propFileContent
+                        echo "${MY_PROPERTIES_FILE} File created: ${propFilePath}"
+                    } else {
+                        echo "${MY_PROPERTIES_FILE} File already exists: ${propFilePath}"
+                    }
+                    
+                }
+            }
+        }
     
         stage('Store Value') {
             steps {
