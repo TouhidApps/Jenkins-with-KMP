@@ -13,6 +13,7 @@ pipeline {
         BUILD_PATH = 'composeApp/build/outputs/apk'
         BUILD_APK_PATH = ''
         DESTINATION_PATH = '/Users/touhid/Desktop/test' // Just to get apk easily
+        ANDROID_SDK_PATH = '/Users/touhid/Library/Android/sdk'
         
         MY_PROPERTIES_FILE = "local.properties"
         GRADLE_FILE = 'composeApp/build.gradle.kts'  // Path to your Gradle file
@@ -32,7 +33,7 @@ pipeline {
                     
                     // Define the file path and content
                     def propFilePath = "${env.WORKSPACE}/${MY_PROPERTIES_FILE}"
-                    def propFileContent = """sdk.dir=/Users/touhid/Library/Android/sdk
+                    def propFileContent = """sdk.dir=${ANDROID_SDK_PATH}
 VERSION_CODE=1
 VERSION_NAME=1.0.0
 RELEASE_NOTES=What's new:	- Added new features	- Fixed bug	- Improved performance	- new notificat"""
