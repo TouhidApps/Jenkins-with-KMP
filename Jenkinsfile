@@ -42,9 +42,19 @@ pipeline {
                     echo "File Content:\n${fileContent}"
                     
                     // Update the properties with the new value
-                    fileContent['VERSION_CODE'] = params.VERSION_CODE
-                    fileContent['VERSION_NAME'] = params.VERSION_NAME
-                    fileContent['RELEASE_NOTES'] = params.RELEASE_NOTES.replaceAll('\n', '\t') // \t to not inturrupt new line of other key values values
+                    if (params.VERSION_CODE) {
+                        fileContent['VERSION_CODE'] = params.VERSION_CODE
+                    }
+                    if (params.VERSION_NAME) {
+                        fileContent['VERSION_NAME'] = params.VERSION_NAME
+                    }
+                    if (params.RELEASE_NOTES) {
+                        fileContent['RELEASE_NOTES'] = params.RELEASE_NOTES.replaceAll('\n', '\t') // Replace newlines with tabs, not to inturrupt new line of other key values values
+                    }
+
+
+
+
                     
                     // Write back to the properties file
                     writeFile file: "${MY_PROPERTIES_FILE}", text: fileContent.collect { "${it.key}=${it.value}" }.join('\n')
