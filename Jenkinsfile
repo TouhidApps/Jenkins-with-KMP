@@ -52,10 +52,6 @@ pipeline {
                         fileContent['RELEASE_NOTES'] = params.RELEASE_NOTES.replaceAll('\n', '\t') // Replace newlines with tabs, not to inturrupt new line of other key values values
                     }
 
-
-
-
-                    
                     // Write back to the properties file
                     writeFile file: "${MY_PROPERTIES_FILE}", text: fileContent.collect { "${it.key}=${it.value}" }.join('\n')
                     
@@ -101,7 +97,7 @@ pipeline {
                 script {
                     
                     // Define Groovy variables
-                    def buildType = params.BUILD_TYPE
+                    def buildType = params.BUILD_TYPE ?: 'debug'
                     def buildPath = "${BUILD_PATH}/${buildType}"
                     BUILD_APK_PATH = "${buildPath}/*.apk"
                     // Make directory if not exists
