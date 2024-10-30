@@ -10,7 +10,7 @@ Customise files paremeters as you need and push.
 Now you can use it with jenkins
 
 ## Full step by step guide:
-![Read my Jenkins article](https://touhidapps.com/learn/jenkins-ci-cd-build-upload-android-app-to-firebase-app-distribution/)
+<mark>[Read my Jenkins article](https://touhidapps.com/learn/jenkins-ci-cd-build-upload-android-app-to-firebase-app-distribution/)</mark>
 
 ## Screenshot:
 
